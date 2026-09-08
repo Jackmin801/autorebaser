@@ -5,7 +5,7 @@
   "target_ref": "main",
   "code_status": "passed",
   "video_status": "rendered",
-  "publication_status": "not_requested",
+  "publication_status": "published",
   "executor": "local",
   "repairs": [
     {
@@ -239,5 +239,7 @@
   "integrated": "275b9617fde3152304a4361f7531a4a28008d6c7",
   "candidate": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
   "story_status": "generated",
-  "seconds": 75.31
+  "seconds": 75.31,
+  "pr_url": "https://github.com/Jackmin801/autorebaser/pull/1",
+  "artifact_url": "https://github.com/Jackmin801/autorebaser/tree/main/showcase/astra-demo"
 }

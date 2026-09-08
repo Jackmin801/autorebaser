@@ -7,7 +7,7 @@ The prototype performs a real Git rebase, asks GPT-6 Astra for a source repair, 
 | Run | Actual model proposals | Final suite | Independent persistence probe | Total time |
 | --- | --- | --- | --- | --- |
 | First end-to-end run | 1 | 8 executions, including duplicate discovery | 5 of 5 records | 65.18s |
-| Renamed importer module | 1 | 6 tests | 5 of 5 records | 65.00s |
+| Renamed importer module | 1 | 6 tests | 5 of 5 records | 65.02s |
 | Published demo bundle | 1 | 6 tests | 5 of 5 records | 75.31s |
 
 These are three rehearsals of one constructed migration scenario, not a general benchmark. The renamed module tests that the repair is not tied to the original importer filename. Each run used `gpt-6-astra` through an authenticated Codex CLI session, with medium reasoning effort. No canned patch was supplied to the repair model. The import-only comparison is a separate, explicitly scripted control.
@@ -35,11 +35,13 @@ Three concrete iterations are visible in the work:
 2. The first fixture discovered base tests twice. Importing the test module instead of its class removed duplicate discovery. Subsequent runs execute six tests.
 3. The first video showed outcome cards. The final renderer animates the exact removed and added source lines before transitioning to persisted-row counts. The storyboard receives complete upstream, feature, and repair diffs alongside the checks.
 
-The local controller suite passes 18 tests covering fixture replay, baseline failure, protected edits, atomic patch validation, path/symlink escapes, credential environment filtering, stale publication, and evidence references. A nineteenth Docker integration test runs in GitHub CI; locally it is skipped because the daemon is stopped. Representative rendered frames and the report's navigation were visually inspected.
+The local controller suite passes 18 tests covering fixture replay, baseline failure, protected edits, atomic patch validation, path/symlink escapes, credential environment filtering, stale publication, and evidence references. [GitHub CI passed all 19 tests](https://github.com/Jackmin801/autorebaser/actions/runs/34268860339), including the Docker integration test, in 34.03 seconds. Locally that test is skipped because the daemon is stopped. Representative rendered frames and the report's navigation were visually inspected.
+
+The bot's own `publish` command opened [draft PR #1](https://github.com/Jackmin801/autorebaser/pull/1) after checking remote source and target SHAs. A second invocation reused the same PR and posted a successful verification status to the exact candidate commit. The draft is open and unmerged.
 
 ## Boundaries
 
-Local rehearsals use trusted fixture code, not an OS sandbox. The Docker executor is configured for read-only source mounts and network-disabled tests; CI exercises it. The Responses API adapter and manual Actions workflow require an `OPENAI_API_KEY` repository secret for an actual model run. The authenticated Codex provider has been exercised locally.
+Local rehearsals use trusted fixture code, not an OS sandbox. The Docker executor uses read-only source mounts and network-disabled tests; its integration check passed in CI. The Responses API adapter and manual Actions workflow require an `OPENAI_API_KEY` repository secret for an actual model run and have not been exercised end to end. The authenticated Codex provider and GitHub CLI publisher have been exercised locally.
 
 The prototype supports configured Python repositories, linear feature histories, exact registry dependency pins, and a bounded source repair loop. It does not yet discover arbitrary dependency migrations, handle arbitrary languages, generate independent tests for arbitrary projects, narrate audio, or establish broad semantic equivalence. The external persistence probe is specific to the bookmark demo. Conflicts outside editable source roots stop for review. Passing these checks supports this recorded behavior on these inputs.
 

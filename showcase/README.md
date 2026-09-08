@@ -2,7 +2,7 @@
 
 The `astra-demo` folder is a selected, completed run. It contains the actual patches, test outputs, model-call metadata, storyboard, and rendered video. It omits dependency binaries, Git worktrees, and model prompts.
 
-[Watch the generated explanation](astra-demo/video.mp4) · [Read the report](astra-demo/review.md) · [Inspect the two-line repair](astra-demo/patches/repair.diff)
+[Open the live draft PR](https://github.com/Jackmin801/autorebaser/pull/1) · [Watch the generated explanation](astra-demo/video.mp4) · [Read the report](astra-demo/review.md) · [Inspect the two-line repair](astra-demo/patches/repair.diff)
 
 ![The actual source adaptation](astra-demo/frame-34.png)
 

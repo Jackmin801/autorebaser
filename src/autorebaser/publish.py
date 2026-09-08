@@ -42,6 +42,12 @@ def publish(directory: Path, github_repo: str, *, base=None, source_ref=None, ar
         if existing_branch and existing_branch != state["candidate"]:
             raise RunError("The publication branch already has a different commit; refusing to overwrite it")
         command(["git", "push", remote, f"{state['candidate']}:refs/heads/{state['branch']}"], repo, env=env)
+        status_args = ["gh", "api", "--method", "POST", f"repos/{github_repo}/statuses/{state['candidate']}",
+                       "-f", "state=success", "-f", "context=Autorebaser / verified candidate",
+                       "-f", f"description=Required checks passed on this commit; executor: {state.get('executor', 'unknown')}"]
+        if artifact_url:
+            status_args += ["-f", f"target_url={artifact_url}"]
+        command(status_args, repo, env=env)
         body = (directory / "review.md").read_text()
         if artifact_url:
             body += f"\n\n[Download the video and evidence bundle]({artifact_url})\n"

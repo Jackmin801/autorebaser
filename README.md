@@ -6,6 +6,8 @@ Manually trigger a bot to adapt a branch to an upstream change, test the result,
 
 [Watch a real run's explanation](showcase/astra-demo/video.mp4) · [Inspect the repair and evidence](showcase/README.md) · [Validation record](docs/06-implementation-and-validation.md)
 
+**Live result:** [Draft PR #1](https://github.com/Jackmin801/autorebaser/pull/1). The bot rebased two feature commits and added a two-line repair, then verified six tests and five persisted records on the exact candidate commit.
+
 ## Try the demo
 
 Use Python 3.11+ and [uv](https://docs.astral.sh/uv/). For Manim on macOS, install `cairo` and `pkgconf` with Homebrew. Linux needs Cairo/Pango development packages and pkg-config.
@@ -49,7 +51,7 @@ autorebaser publish runs/example --repo Jackmin801/autorebaser \
   --artifact-url https://github.com/Jackmin801/autorebaser/actions/runs/RUN_ID
 ```
 
-Set `GH_TOKEN`/`GITHUB_TOKEN` or authenticate `gh`. The bot checks that remote source and target heads still match the tested inputs, pushes a new branch, and creates a draft PR. It never force-pushes or merges. Publishing is retriable, with existing PR detection. `--base` and `--source-ref` map local fixture refs to corresponding remote demo refs; their SHAs must match.
+Set `GH_TOKEN`/`GITHUB_TOKEN` or authenticate `gh`. The bot checks that remote source and target heads still match the tested inputs, pushes a new branch, posts a verification status to that commit, and creates a draft PR. It never force-pushes or merges. Publishing is retriable, with existing PR detection. `--base` and `--source-ref` map local fixture refs to corresponding remote demo refs; their SHAs must match.
 
 The **Run Autorebaser** Actions workflow is a manual trigger. Configure an `OPENAI_API_KEY` repository secret, allow Actions to create PRs, and provide `demo/main` and `demo/feature` branches containing the fixture history. It runs the trusted controller from `main`, uses Docker for checks, and uploads a review bundle with 14-day retention. No scheduled automation is enabled.
 
