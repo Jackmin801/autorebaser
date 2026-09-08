@@ -8,7 +8,7 @@ def initialize():
         connection.execute(text("CREATE TABLE IF NOT EXISTS bookmarks (url TEXT PRIMARY KEY, title TEXT NOT NULL)"))
 
 def add_bookmark(url, title):
-    with engine.connect() as connection:
+    with engine.begin() as connection:
         connection.execute(text("INSERT INTO bookmarks (url, title) VALUES (:url, :title)"), {"url": url, "title": title})
 
 def list_bookmarks():
