@@ -1,6 +1,6 @@
 import argparse
 import json
-from app.db import initialize, add_bookmark, list_bookmarks
+from app.storage.db import initialize, add_bookmark, list_bookmarks
 
 def main():
     parser = argparse.ArgumentParser()
