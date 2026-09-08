@@ -9,7 +9,8 @@ def main():
     add.add_argument("url")
     add.add_argument("title")
     sub.add_parser("list")
-    # Feature command registration
+    batch = sub.add_parser("import")
+    batch.add_argument("filename")
     args = parser.parse_args()
     initialize()
     if args.action == "add":
@@ -17,7 +18,9 @@ def main():
         print(json.dumps({"saved": 1}))
     elif args.action == "list":
         print(json.dumps(list_bookmarks()))
-    # Feature command dispatch
+    elif args.action == "import":
+        from app.importer import import_bookmarks
+        print(json.dumps({"imported": import_bookmarks(args.filename)}))
 
 if __name__ == "__main__":
     main()
