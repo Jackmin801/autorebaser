@@ -1,0 +1,16 @@
+{
+  "requirements": "requirements.lock",
+  "test_command": [
+    "{python}",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "editable_roots": [
+    "app/"
+  ],
+  "intent": "Keep the bulk-import command. Every successfully imported bookmark must persist after the command exits and be visible to a new process. Preserve existing add/list behavior."
+}
