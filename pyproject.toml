@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autorebaser"
+version = "0.1.0"
+description = "Repair a rebase, verify the feature, and watch the explanation."
+requires-python = ">=3.11"
+dependencies = ["openai>=2.0,<3"]
+
+[project.optional-dependencies]
+video = ["manim>=0.19,<0.22"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+autorebaser = "autorebaser.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

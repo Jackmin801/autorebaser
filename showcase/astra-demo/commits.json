@@ -1,0 +1,12 @@
+[
+  {
+    "original": "b2949884ebc20fc7cd216c7361194e50f77a581a",
+    "rebased": "2681369f6666f4852d6b7e0b28f6975a9032998d",
+    "subject": "Add JSON bulk bookmark import"
+  },
+  {
+    "original": "9ba65048c5f371a0b2cddcbe85c71770fa84cf5e",
+    "rebased": "275b9617fde3152304a4361f7531a4a28008d6c7",
+    "subject": "Verify bulk imports survive a fresh process"
+  }
+]

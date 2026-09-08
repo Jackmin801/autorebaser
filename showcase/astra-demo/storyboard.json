@@ -1,0 +1,41 @@
+{
+  "title": "Rebasing bulk import across the storage migration",
+  "scenes": [
+    {
+      "title": "Upstream change: storage moves, transactions change",
+      "caption": "Upstream moved app/db.py to app/storage/db.py, updated the CLI import, and upgraded SQLAlchemy from 1.4.54 to 2.0.36. add_bookmark() switched from engine.connect() to engine.begin().",
+      "evidence_ids": [
+        "upstream"
+      ]
+    },
+    {
+      "title": "Feature assumption/failure: old module and connection pattern",
+      "caption": "Bulk import retained app.db and engine.connect(). Integration failed on the missing module, consistent with the relocation diff. The separate scripted mechanical-control comparison reported 5 imported but persisted 0; it was not an agent repair step.",
+      "evidence_ids": [
+        "feature",
+        "upstream",
+        "integration-suite",
+        "mechanical-control-persistence"
+      ]
+    },
+    {
+      "title": "Repair: relocate the import and commit bulk inserts",
+      "caption": "The agent changed the importer to app.storage.db and engine.begin(). The diffs suggest the old connection block lacked the commit needed after the upgrade; the new transaction commits on successful exit before returning the import count.",
+      "evidence_ids": [
+        "upstream",
+        "feature",
+        "repair"
+      ]
+    },
+    {
+      "title": "Verification: recorded checks pass after repair",
+      "caption": "The controller\u2019s repair and final checks passed. The final suite passed all 6 tests, covering add/list, empty import, and fresh-process import persistence. The final probe recovered all 5 expected records with an exact match.",
+      "evidence_ids": [
+        "repair-1-suite",
+        "repair-1-persistence",
+        "final-suite",
+        "final-persistence"
+      ]
+    }
+  ]
+}

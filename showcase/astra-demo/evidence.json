@@ -1,0 +1,328 @@
+{
+  "candidate": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
+  "claims": [
+    {
+      "id": "upstream",
+      "statement": "Changes made on the target branch",
+      "support": "observed",
+      "artifact": "patches/upstream.diff"
+    },
+    {
+      "id": "feature",
+      "statement": "Keep the bulk-import command. Every successfully imported bookmark must persist after the command exits and be visible to a new process. Preserve existing add/list behavior.",
+      "support": "specified",
+      "artifact": "patches/feature.diff"
+    },
+    {
+      "id": "repair",
+      "statement": "Candidate source adaptations",
+      "support": "observed",
+      "artifact": "patches/repair.diff"
+    },
+    {
+      "id": "original-suite",
+      "statement": "original suite: passed",
+      "support": "observed",
+      "artifact": "checks/original-suite.json"
+    },
+    {
+      "id": "original-persistence",
+      "statement": "original persistence: passed",
+      "support": "observed",
+      "artifact": "checks/original-persistence.json"
+    },
+    {
+      "id": "target-suite",
+      "statement": "target suite: passed",
+      "support": "observed",
+      "artifact": "checks/target-suite.json"
+    },
+    {
+      "id": "integration-suite",
+      "statement": "integration suite: failed",
+      "support": "observed",
+      "artifact": "checks/integration-suite.json"
+    },
+    {
+      "id": "integration-persistence",
+      "statement": "integration persistence: failed",
+      "support": "observed",
+      "artifact": "checks/integration-persistence.json"
+    },
+    {
+      "id": "mechanical-control-suite",
+      "statement": "mechanical-control suite: failed",
+      "support": "observed",
+      "artifact": "checks/mechanical-control-suite.json"
+    },
+    {
+      "id": "mechanical-control-persistence",
+      "statement": "mechanical-control persistence: failed",
+      "support": "observed",
+      "artifact": "checks/mechanical-control-persistence.json"
+    },
+    {
+      "id": "repair-1-suite",
+      "statement": "repair-1 suite: passed",
+      "support": "observed",
+      "artifact": "checks/repair-1-suite.json"
+    },
+    {
+      "id": "repair-1-persistence",
+      "statement": "repair-1 persistence: passed",
+      "support": "observed",
+      "artifact": "checks/repair-1-persistence.json"
+    },
+    {
+      "id": "final-suite",
+      "statement": "final suite: passed",
+      "support": "observed",
+      "artifact": "checks/final-suite.json"
+    },
+    {
+      "id": "final-persistence",
+      "statement": "final persistence: passed",
+      "support": "observed",
+      "artifact": "checks/final-persistence.json"
+    }
+  ],
+  "checks": [
+    {
+      "id": "original-suite",
+      "label": "original",
+      "kind": "suite",
+      "sha": "9ba65048c5f371a0b2cddcbe85c71770fa84cf5e",
+      "environment": "58538ec5687595c1455e5d6b7b0c2e11e038a288fd251059ad39973cf4df14f2",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/58538ec5687595c1/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... ok\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 3.811s\n\nOK\n",
+      "seconds": 3.856,
+      "test_count": 6
+    },
+    {
+      "id": "original-persistence",
+      "label": "original",
+      "kind": "persistence",
+      "sha": "9ba65048c5f371a0b2cddcbe85c71770fa84cf5e",
+      "environment": "58538ec5687595c1455e5d6b7b0c2e11e038a288fd251059ad39973cf4df14f2",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/58538ec5687595c1/bin/python",
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+      ],
+      "exit_code": 0,
+      "output": "{\"expected_count\": 5, \"persisted_count\": 5, \"exact_records_match\": true, \"writer_stdout\": \"{\\\"imported\\\": 5}\"}\n",
+      "seconds": 0.271,
+      "test_count": null
+    },
+    {
+      "id": "target-suite",
+      "label": "target",
+      "kind": "suite",
+      "sha": "0e9b39aac37ed46505036c6e4648ccfaa6f2b4c0",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 2.572s\n\nOK\n",
+      "seconds": 2.616,
+      "test_count": 2
+    },
+    {
+      "id": "integration-suite",
+      "label": "integration",
+      "kind": "suite",
+      "sha": "275b9617fde3152304a4361f7531a4a28008d6c7",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": false,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 1,
+      "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 26, in <module>\n    main()\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 22, in main\n    from app.importer import import_bookmarks\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/importer.py\", line 3, in <module>\n    from app.db import engine\nModuleNotFoundError: No module named 'app.db'\nERROR\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 26, in <module>\n    main()\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 22, in main\n    from app.importer import import_bookmarks\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/importer.py\", line 3, in <module>\n    from app.db import engine\nModuleNotFoundError: No module named 'app.db'\nERROR\n\n======================================================================\nERROR: test_empty_import (test_import.ImportTests.test_empty_import)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/tests/test_import.py\", line 16, in test_empty_import\n    self.assertEqual(self.cli(\"import\", str(filename))[\"imported\"], 0)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/tests/test_app.py\", line 16, in cli\n    return json.loads(subprocess.check_output([sys.executable, \"-m\", \"app.cli\", *args], env=self.env, text=True))\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jackmin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jackmin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python', '-m', 'app.cli', 'import', '/var/folders/3v/bf776sbx3nj4zjclbdhh10f80000gn/T/tmpf5tv59py/empty.json']' returned non-zero exit status 1.\n\n======================================================================\nERROR: test_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/tests/test_import.py\", line 10, in test_import_survives_new_process\n    self.assertEqual(self.cli(\"import\", str(filename))[\"imported\"], 3)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/tests/test_app.py\", line 16, in cli\n    return json.loads(subprocess.check_output([sys.executable, \"-m\", \"app.cli\", *args], env=self.env, text=True))\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jackmin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 466, in check_output\n    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jackmin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python', '-m', 'app.cli', 'import', '/var/folders/3v/bf776sbx3nj4zjclbdhh10f80000gn/T/tmpf7g6mu_w/input.json']' returned non-zero exit status 1.\n\n----------------------------------------------------------------------\nRan 6 tests in 2.632s\n\nFAILED (errors=2)\n",
+      "seconds": 2.671,
+      "test_count": 6
+    },
+    {
+      "id": "integration-persistence",
+      "label": "integration",
+      "kind": "persistence",
+      "sha": "275b9617fde3152304a4361f7531a4a28008d6c7",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": false,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+      ],
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 26, in <module>\n    main()\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 22, in main\n    from app.importer import import_bookmarks\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/importer.py\", line 3, in <module>\n    from app.db import engine\nModuleNotFoundError: No module named 'app.db'\n\n",
+      "seconds": 0.372,
+      "test_count": null
+    },
+    {
+      "id": "mechanical-control-suite",
+      "label": "mechanical-control",
+      "kind": "suite",
+      "sha": "2534e9da228d790cb516a3574b4ce7753ae71c45",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": false,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 1,
+      "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... ok\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... FAIL\n\n======================================================================\nFAIL: test_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/mechanical-control/tests/test_import.py\", line 11, in test_import_survives_new_process\n    self.assertEqual(self.cli(\"list\"), records)\nAssertionError: Lists differ: [] != [{'url': 'https://example.org/0', 'title':[124 chars] 2'}]\n\nSecond list contains 3 additional elements.\nFirst extra element 0:\n{'url': 'https://example.org/0', 'title': 'Bookmark 0'}\n\n- []\n+ [{'title': 'Bookmark 0', 'url': 'https://example.org/0'},\n+  {'title': 'Bookmark 1', 'url': 'https://example.org/1'},\n+  {'title': 'Bookmark 2', 'url': 'https://example.org/2'}]\n\n----------------------------------------------------------------------\nRan 6 tests in 3.394s\n\nFAILED (failures=1)\n",
+      "seconds": 3.434,
+      "test_count": 6
+    },
+    {
+      "id": "mechanical-control-persistence",
+      "label": "mechanical-control",
+      "kind": "persistence",
+      "sha": "2534e9da228d790cb516a3574b4ce7753ae71c45",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": false,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+      ],
+      "exit_code": 1,
+      "output": "{\"expected_count\": 5, \"persisted_count\": 0, \"exact_records_match\": false, \"writer_stdout\": \"{\\\"imported\\\": 5}\"}\n",
+      "seconds": 0.364,
+      "test_count": null
+    },
+    {
+      "id": "repair-1-suite",
+      "label": "repair-1",
+      "kind": "suite",
+      "sha": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... ok\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 3.276s\n\nOK\n",
+      "seconds": 3.317,
+      "test_count": 6
+    },
+    {
+      "id": "repair-1-persistence",
+      "label": "repair-1",
+      "kind": "persistence",
+      "sha": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+      ],
+      "exit_code": 0,
+      "output": "{\"expected_count\": 5, \"persisted_count\": 5, \"exact_records_match\": true, \"writer_stdout\": \"{\\\"imported\\\": 5}\"}\n",
+      "seconds": 0.345,
+      "test_count": null
+    },
+    {
+      "id": "final-suite",
+      "label": "final",
+      "kind": "suite",
+      "sha": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... ok\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 3.164s\n\nOK\n",
+      "seconds": 3.206,
+      "test_count": 6
+    },
+    {
+      "id": "final-persistence",
+      "label": "final",
+      "kind": "persistence",
+      "sha": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
+      "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+      "passed": true,
+      "command": [
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+        "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+      ],
+      "exit_code": 0,
+      "output": "{\"expected_count\": 5, \"persisted_count\": 5, \"exact_records_match\": true, \"writer_stdout\": \"{\\\"imported\\\": 5}\"}\n",
+      "seconds": 0.345,
+      "test_count": null
+    }
+  ],
+  "repairs": [
+    {
+      "phase": "behavior validation",
+      "diagnosis": "The importer references the removed app.db module, causing the observed failures. Its engine.connect() context also lacks a commit under SQLAlchemy 2.0, so successful inserts would be rolled back on connection exit.",
+      "changes": [
+        {
+          "path": "app/importer.py",
+          "content": "import json\nfrom sqlalchemy import text\nfrom app.storage.db import engine\n\ndef import_bookmarks(filename):\n    with open(filename) as handle:\n        bookmarks = json.load(handle)\n    with engine.begin() as connection:\n        for bookmark in bookmarks:\n            connection.execute(text(\"INSERT INTO bookmarks (url, title) VALUES (:url, :title)\"), bookmark)\n    return len(bookmarks)\n",
+          "reason": "Use the relocated storage engine and commit the import transaction before returning its count, ensuring imported bookmarks persist across processes."
+        }
+      ],
+      "summary": "Update the importer to use app.storage.db and commit bulk inserts with engine.begin()."
+    }
+  ],
+  "commits": [
+    {
+      "original": "b2949884ebc20fc7cd216c7361194e50f77a581a",
+      "rebased": "2681369f6666f4852d6b7e0b28f6975a9032998d",
+      "subject": "Add JSON bulk bookmark import"
+    },
+    {
+      "original": "9ba65048c5f371a0b2cddcbe85c71770fa84cf5e",
+      "rebased": "275b9617fde3152304a4361f7531a4a28008d6c7",
+      "subject": "Verify bulk imports survive a fresh process"
+    }
+  ],
+  "patches": {
+    "upstream": "diff --git a/MIGRATION.md b/MIGRATION.md\nnew file mode 100644\nindex 0000000..4eef3c9\n--- /dev/null\n+++ b/MIGRATION.md\n@@ -0,0 +1,4 @@\n+# Storage migration\n+SQLAlchemy is upgraded to 2.0.36. Database code now lives in app.storage.db.\n+The old and new dependency locks are authoritative. Preserve the target version.\n+Migration reference: https://docs.sqlalchemy.org/en/20/changelog/migration_20.html\ndiff --git a/app/cli.py b/app/cli.py\nindex 3ca29c3..8f1cc6c 100644\n--- a/app/cli.py\n+++ b/app/cli.py\n@@ -1,6 +1,6 @@\n import argparse\n import json\n-from app.db import initialize, add_bookmark, list_bookmarks\n+from app.storage.db import initialize, add_bookmark, list_bookmarks\n \n def main():\n     parser = argparse.ArgumentParser()\ndiff --git a/app/storage/__init__.py b/app/storage/__init__.py\nnew file mode 100644\nindex 0000000..e69de29\ndiff --git a/app/db.py b/app/storage/db.py\nsimilarity index 93%\nrename from app/db.py\nrename to app/storage/db.py\nindex 9de7b5b..d60e38a 100644\n--- a/app/db.py\n+++ b/app/storage/db.py\n@@ -8,7 +8,7 @@ def initialize():\n         connection.execute(text(\"CREATE TABLE IF NOT EXISTS bookmarks (url TEXT PRIMARY KEY, title TEXT NOT NULL)\"))\n \n def add_bookmark(url, title):\n-    with engine.connect() as connection:\n+    with engine.begin() as connection:\n         connection.execute(text(\"INSERT INTO bookmarks (url, title) VALUES (:url, :title)\"), {\"url\": url, \"title\": title})\n \n def list_bookmarks():\ndiff --git a/requirements.lock b/requirements.lock\nindex 4401ae4..6d9e783 100644\n--- a/requirements.lock\n+++ b/requirements.lock\n@@ -1,3 +1,3 @@\n-SQLAlchemy==1.4.54\n+SQLAlchemy==2.0.36\n greenlet==3.1.1\n typing_extensions==4.12.2",
+    "feature": "diff --git a/app/cli.py b/app/cli.py\nindex 3ca29c3..2cc87fa 100644\n--- a/app/cli.py\n+++ b/app/cli.py\n@@ -9,7 +9,8 @@ def main():\n     add.add_argument(\"url\")\n     add.add_argument(\"title\")\n     sub.add_parser(\"list\")\n-    # Feature command registration\n+    batch = sub.add_parser(\"import\")\n+    batch.add_argument(\"filename\")\n     args = parser.parse_args()\n     initialize()\n     if args.action == \"add\":\n@@ -17,7 +18,9 @@ def main():\n         print(json.dumps({\"saved\": 1}))\n     elif args.action == \"list\":\n         print(json.dumps(list_bookmarks()))\n-    # Feature command dispatch\n+    elif args.action == \"import\":\n+        from app.importer import import_bookmarks\n+        print(json.dumps({\"imported\": import_bookmarks(args.filename)}))\n \n if __name__ == \"__main__\":\n     main()\ndiff --git a/app/importer.py b/app/importer.py\nnew file mode 100644\nindex 0000000..07c89d6\n--- /dev/null\n+++ b/app/importer.py\n@@ -0,0 +1,11 @@\n+import json\n+from sqlalchemy import text\n+from app.db import engine\n+\n+def import_bookmarks(filename):\n+    with open(filename) as handle:\n+        bookmarks = json.load(handle)\n+    with engine.connect() as connection:\n+        for bookmark in bookmarks:\n+            connection.execute(text(\"INSERT INTO bookmarks (url, title) VALUES (:url, :title)\"), bookmark)\n+    return len(bookmarks)\ndiff --git a/tests/test_import.py b/tests/test_import.py\nnew file mode 100644\nindex 0000000..4ef6572\n--- /dev/null\n+++ b/tests/test_import.py\n@@ -0,0 +1,17 @@\n+import json\n+from pathlib import Path\n+import test_app\n+\n+class ImportTests(test_app.AppTests):\n+    def test_import_survives_new_process(self):\n+        records = [{\"url\": f\"https://example.org/{i}\", \"title\": f\"Bookmark {i}\"} for i in range(3)]\n+        filename = Path(self.tmp.name) / \"input.json\"\n+        filename.write_text(json.dumps(records))\n+        self.assertEqual(self.cli(\"import\", str(filename))[\"imported\"], 3)\n+        self.assertEqual(self.cli(\"list\"), records)\n+\n+    def test_empty_import(self):\n+        filename = Path(self.tmp.name) / \"empty.json\"\n+        filename.write_text(\"[]\")\n+        self.assertEqual(self.cli(\"import\", str(filename))[\"imported\"], 0)\n+        self.assertEqual(self.cli(\"list\"), [])",
+    "repair": "diff --git a/app/importer.py b/app/importer.py\nindex 07c89d6..d8e24d5 100644\n--- a/app/importer.py\n+++ b/app/importer.py\n@@ -1,11 +1,11 @@\n import json\n from sqlalchemy import text\n-from app.db import engine\n+from app.storage.db import engine\n \n def import_bookmarks(filename):\n     with open(filename) as handle:\n         bookmarks = json.load(handle)\n-    with engine.connect() as connection:\n+    with engine.begin() as connection:\n         for bookmark in bookmarks:\n             connection.execute(text(\"INSERT INTO bookmarks (url, title) VALUES (:url, :title)\"), bookmark)\n     return len(bookmarks)"
+  }
+}

@@ -1,0 +1,11 @@
+test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok
+test_empty_list (test_app.AppTests.test_empty_list) ... ok
+test_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok
+test_empty_import (test_import.ImportTests.test_empty_import) ... ok
+test_empty_list (test_import.ImportTests.test_empty_list) ... ok
+test_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.276s
+
+OK

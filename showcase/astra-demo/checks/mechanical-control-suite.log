@@ -1,0 +1,28 @@
+test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok
+test_empty_list (test_app.AppTests.test_empty_list) ... ok
+test_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok
+test_empty_import (test_import.ImportTests.test_empty_import) ... ok
+test_empty_list (test_import.ImportTests.test_empty_list) ... ok
+test_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... FAIL
+
+======================================================================
+FAIL: test_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/mechanical-control/tests/test_import.py", line 11, in test_import_survives_new_process
+    self.assertEqual(self.cli("list"), records)
+AssertionError: Lists differ: [] != [{'url': 'https://example.org/0', 'title':[124 chars] 2'}]
+
+Second list contains 3 additional elements.
+First extra element 0:
+{'url': 'https://example.org/0', 'title': 'Bookmark 0'}
+
+- []
++ [{'title': 'Bookmark 0', 'url': 'https://example.org/0'},
++  {'title': 'Bookmark 1', 'url': 'https://example.org/1'},
++  {'title': 'Bookmark 2', 'url': 'https://example.org/2'}]
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.394s
+
+FAILED (failures=1)

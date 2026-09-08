@@ -1,0 +1,65 @@
+diff --git a/app/cli.py b/app/cli.py
+index 8f1cc6c..a320375 100644
+--- a/app/cli.py
++++ b/app/cli.py
+@@ -9,7 +9,8 @@ def main():
+     add.add_argument("url")
+     add.add_argument("title")
+     sub.add_parser("list")
+-    # Feature command registration
++    batch = sub.add_parser("import")
++    batch.add_argument("filename")
+     args = parser.parse_args()
+     initialize()
+     if args.action == "add":
+@@ -17,7 +18,9 @@ def main():
+         print(json.dumps({"saved": 1}))
+     elif args.action == "list":
+         print(json.dumps(list_bookmarks()))
+-    # Feature command dispatch
++    elif args.action == "import":
++        from app.importer import import_bookmarks
++        print(json.dumps({"imported": import_bookmarks(args.filename)}))
+ 
+ if __name__ == "__main__":
+     main()
+diff --git a/app/importer.py b/app/importer.py
+new file mode 100644
+index 0000000..d8e24d5
+--- /dev/null
++++ b/app/importer.py
+@@ -0,0 +1,11 @@
++import json
++from sqlalchemy import text
++from app.storage.db import engine
++
++def import_bookmarks(filename):
++    with open(filename) as handle:
++        bookmarks = json.load(handle)
++    with engine.begin() as connection:
++        for bookmark in bookmarks:
++            connection.execute(text("INSERT INTO bookmarks (url, title) VALUES (:url, :title)"), bookmark)
++    return len(bookmarks)
+diff --git a/tests/test_import.py b/tests/test_import.py
+new file mode 100644
+index 0000000..4ef6572
+--- /dev/null
++++ b/tests/test_import.py
+@@ -0,0 +1,17 @@
++import json
++from pathlib import Path
++import test_app
++
++class ImportTests(test_app.AppTests):
++    def test_import_survives_new_process(self):
++        records = [{"url": f"https://example.org/{i}", "title": f"Bookmark {i}"} for i in range(3)]
++        filename = Path(self.tmp.name) / "input.json"
++        filename.write_text(json.dumps(records))
++        self.assertEqual(self.cli("import", str(filename))["imported"], 3)
++        self.assertEqual(self.cli("list"), records)
++
++    def test_empty_import(self):
++        filename = Path(self.tmp.name) / "empty.json"
++        filename.write_text("[]")
++        self.assertEqual(self.cli("import", str(filename))["imported"], 0)
++        self.assertEqual(self.cli("list"), [])

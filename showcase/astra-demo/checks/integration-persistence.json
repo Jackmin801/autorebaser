@@ -1,0 +1,16 @@
+{
+  "id": "integration-persistence",
+  "label": "integration",
+  "kind": "persistence",
+  "sha": "275b9617fde3152304a4361f7531a4a28008d6c7",
+  "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+  "passed": false,
+  "command": [
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+  ],
+  "exit_code": 1,
+  "output": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 26, in <module>\n    main()\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py\", line 22, in main\n    from app.importer import import_bookmarks\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/importer.py\", line 3, in <module>\n    from app.db import engine\nModuleNotFoundError: No module named 'app.db'\n\n",
+  "seconds": 0.372,
+  "test_count": null
+}

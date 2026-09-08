@@ -1,0 +1,69 @@
+name: Run Autorebaser
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the validated repair as a draft PR
+        type: boolean
+        default: true
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: autorebaser-demo
+  cancel-in-progress: false
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libpango1.0-dev pkg-config ffmpeg
+          pip install uv
+          uv sync --frozen --extra video
+      - name: Expose the demo refs to the isolated local clone
+        run: |
+          git branch demo/main refs/remotes/origin/demo/main
+          git branch demo/feature refs/remotes/origin/demo/feature
+      - name: Repair, verify and explain
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          .venv/bin/autorebaser rebase --repo "$GITHUB_WORKSPACE" --source demo/feature --onto demo/main --provider api --executor docker --demo-probe --output "runs/ci-$GITHUB_RUN_ID"
+      - name: Upload the review bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autorebaser-review
+          retention-days: 14
+          path: |
+            runs/*/review.html
+            runs/*/review.md
+            runs/*/video.mp4
+            runs/*/video.json
+            runs/*/poster.png
+            runs/*/storyboard.json
+            runs/*/evidence.json
+            runs/*/run.json
+            runs/*/commits.json
+            runs/*/model-calls.json
+            runs/*/environments.json
+            runs/*/events.jsonl
+            runs/*/checks/
+            runs/*/patches/
+      - name: Publish draft PR
+        if: success() && inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          .venv/bin/autorebaser publish "runs/ci-$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --artifact-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

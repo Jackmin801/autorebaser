@@ -1,0 +1,22 @@
+name: Test the controller
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install uv && uv sync --frozen --extra dev
+      - run: .venv/bin/python -m pytest -q
+        env:
+          AUTOREBASER_TEST_DOCKER: '1'

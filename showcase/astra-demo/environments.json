@@ -1,0 +1,16 @@
+[
+  {
+    "path": "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/58538ec5687595c1",
+    "fingerprint": "58538ec5687595c1455e5d6b7b0c2e11e038a288fd251059ad39973cf4df14f2",
+    "requirements": "SQLAlchemy==1.4.54\ngreenlet==3.1.1\ntyping_extensions==4.12.2\n",
+    "installed": "Using Python 3.12.14 environment at: /Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/58538ec5687595c1\ngreenlet==3.1.1\nsqlalchemy==1.4.54\ntyping-extensions==4.12.2\n",
+    "executor": "local"
+  },
+  {
+    "path": "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e",
+    "fingerprint": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+    "requirements": "SQLAlchemy==2.0.36\ngreenlet==3.1.1\ntyping_extensions==4.12.2\n",
+    "installed": "Using Python 3.12.14 environment at: /Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e\ngreenlet==3.1.1\nsqlalchemy==2.0.36\ntyping-extensions==4.12.2\n",
+    "executor": "local"
+  }
+]

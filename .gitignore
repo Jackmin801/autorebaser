@@ -1,0 +1,11 @@
+.venv/
+.cache/
+.demo/
+runs/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.env
+media/
+.DS_Store

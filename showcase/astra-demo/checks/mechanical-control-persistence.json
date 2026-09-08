@@ -1,0 +1,16 @@
+{
+  "id": "mechanical-control-persistence",
+  "label": "mechanical-control",
+  "kind": "persistence",
+  "sha": "2534e9da228d790cb516a3574b4ce7753ae71c45",
+  "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+  "passed": false,
+  "command": [
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+  ],
+  "exit_code": 1,
+  "output": "{\"expected_count\": 5, \"persisted_count\": 0, \"exact_records_match\": false, \"writer_stdout\": \"{\\\"imported\\\": 5}\"}\n",
+  "seconds": 0.364,
+  "test_count": null
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py", line 26, in <module>
+    main()
+  File "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/cli.py", line 22, in main
+    from app.importer import import_bookmarks
+  File "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/candidate/app/importer.py", line 3, in <module>
+    from app.db import engine
+ModuleNotFoundError: No module named 'app.db'
+

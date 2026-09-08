@@ -1,0 +1,7 @@
+test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok
+test_empty_list (test_app.AppTests.test_empty_list) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.572s
+
+OK

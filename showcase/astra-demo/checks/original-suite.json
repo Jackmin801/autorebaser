@@ -1,0 +1,21 @@
+{
+  "id": "original-suite",
+  "label": "original",
+  "kind": "suite",
+  "sha": "9ba65048c5f371a0b2cddcbe85c71770fa84cf5e",
+  "environment": "58538ec5687595c1455e5d6b7b0c2e11e038a288fd251059ad39973cf4df14f2",
+  "passed": true,
+  "command": [
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/58538ec5687595c1/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... ok\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 3.811s\n\nOK\n",
+  "seconds": 3.856,
+  "test_count": 6
+}

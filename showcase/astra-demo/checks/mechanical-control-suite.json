@@ -1,0 +1,21 @@
+{
+  "id": "mechanical-control-suite",
+  "label": "mechanical-control",
+  "kind": "suite",
+  "sha": "2534e9da228d790cb516a3574b4ce7753ae71c45",
+  "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+  "passed": false,
+  "command": [
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 1,
+  "output": "test_add_survives_new_process (test_app.AppTests.test_add_survives_new_process) ... ok\ntest_empty_list (test_app.AppTests.test_empty_list) ... ok\ntest_add_survives_new_process (test_import.ImportTests.test_add_survives_new_process) ... ok\ntest_empty_import (test_import.ImportTests.test_empty_import) ... ok\ntest_empty_list (test_import.ImportTests.test_empty_list) ... ok\ntest_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process) ... FAIL\n\n======================================================================\nFAIL: test_import_survives_new_process (test_import.ImportTests.test_import_survives_new_process)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/mechanical-control/tests/test_import.py\", line 11, in test_import_survives_new_process\n    self.assertEqual(self.cli(\"list\"), records)\nAssertionError: Lists differ: [] != [{'url': 'https://example.org/0', 'title':[124 chars] 2'}]\n\nSecond list contains 3 additional elements.\nFirst extra element 0:\n{'url': 'https://example.org/0', 'title': 'Bookmark 0'}\n\n- []\n+ [{'title': 'Bookmark 0', 'url': 'https://example.org/0'},\n+  {'title': 'Bookmark 1', 'url': 'https://example.org/1'},\n+  {'title': 'Bookmark 2', 'url': 'https://example.org/2'}]\n\n----------------------------------------------------------------------\nRan 6 tests in 3.394s\n\nFAILED (failures=1)\n",
+  "seconds": 3.434,
+  "test_count": 6
+}

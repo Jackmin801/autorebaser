@@ -1,0 +1,12 @@
+{"stage": "prepare", "message": "Cloning an isolated copy and pinning the branch heads", "elapsed": 0.0}
+{"stage": "baseline", "message": "Checking original at 9ba65048 in its own dependency environment", "elapsed": 0.18}
+{"stage": "baseline", "message": "Checking target at 0e9b39aa in its own dependency environment", "elapsed": 5.1}
+{"stage": "replay", "message": "Replaying 2 feature commits onto 0e9b39aa", "elapsed": 8.29}
+{"stage": "test", "message": "Checking the replayed feature, including behavior after process exit", "elapsed": 8.41}
+{"stage": "control", "message": "Running the separately labeled import-only comparison", "elapsed": 11.53}
+{"stage": "astra", "message": "Diagnosing behavior validation and proposing a minimal source repair", "elapsed": 15.34}
+{"stage": "repair", "message": "Update the importer to use app.storage.db and commit bulk inserts with engine.begin().", "elapsed": 26.17, "paths": ["app/importer.py"]}
+{"stage": "verify", "message": "Verifying the committed candidate b77334b5 from a fresh checkout", "elapsed": 29.97}
+{"stage": "explain", "message": "Generating a four-scene explanation from the recorded evidence", "elapsed": 33.62}
+{"stage": "render", "message": "Rendering the evidence-backed Manim video", "elapsed": 55.1}
+{"stage": "done", "message": "Code: passed \u00b7 Video: rendered", "elapsed": 75.32}

@@ -1,0 +1,13 @@
+{
+  "duration": 58.706705729166664,
+  "width": 1280,
+  "height": 720,
+  "frames": [
+    "frame-02.png",
+    "frame-10.png",
+    "frame-24.png",
+    "frame-39.png",
+    "frame-53.png"
+  ],
+  "renderer": "Manim Community"
+}

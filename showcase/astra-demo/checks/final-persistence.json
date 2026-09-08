@@ -1,0 +1,16 @@
+{
+  "id": "final-persistence",
+  "label": "final",
+  "kind": "persistence",
+  "sha": "b77334b5cca513cdd61f4493a3883dfa2e9e7bab",
+  "environment": "967631ac4efc002e7ffaaaed18e35954d7beee05486e5c86cfcc67aa95fa3575",
+  "passed": true,
+  "command": [
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/environments/967631ac4efc002e/bin/python",
+    "/Users/jackmin/Documents/ChatGPT/Autorebaser/runs/astra-demo/trusted/probe.py"
+  ],
+  "exit_code": 0,
+  "output": "{\"expected_count\": 5, \"persisted_count\": 5, \"exact_records_match\": true, \"writer_stdout\": \"{\\\"imported\\\": 5}\"}\n",
+  "seconds": 0.345,
+  "test_count": null
+}
